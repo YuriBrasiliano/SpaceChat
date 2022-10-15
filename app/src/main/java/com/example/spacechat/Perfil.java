@@ -10,11 +10,14 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +34,25 @@ public class Perfil extends AppCompatActivity {
     private Button btnSair, btnAlterarFotoPerfil;
     private ImageView imgPerfil;
     private Uri imagePath;
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_base, menu);
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.mnChats){
+            startActivity(new Intent(Perfil.this,AmigosActivity.class));
+        }
+        if(item.getItemId() == R.id.mnMarketPlace){
+            startActivity(new Intent(Perfil.this,MarketPlaceActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +97,7 @@ public class Perfil extends AppCompatActivity {
 
         if(requestCode == 1 && resultCode == RESULT_OK && data!=null){
             imagePath = data.getData();
+            imgPerfil.setImageURI(imagePath);
             getImageInImageView();
         }
     }
@@ -98,11 +121,12 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                   task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
                            if(task.isSuccessful()){
                                alterarFotoDoUsuario(task.getResult().toString());
+
                            }
                         }
                     });
@@ -124,6 +148,8 @@ public class Perfil extends AppCompatActivity {
 
     private void alterarFotoDoUsuario(String url) {
         FirebaseDatabase.getInstance().getReference("user/"+FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilePicture").setValue(url);
+
+
     }
 
 

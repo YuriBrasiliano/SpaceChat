@@ -16,17 +16,22 @@
         android:theme="@style/Theme.SpaceChat"
         tools:targetApi="31">
         <activity
-            android:name=".MessageActivity" android:theme="@style/StyleSemToolbar"
+            android:name=".MarketPlaceActivity"
             android:exported="false" />
         <activity
-            android:name=".Perfil" android:theme="@style/StyleSemToolbar"
+            android:name=".MessageActivity"
+            android:exported="false"
+            android:theme="@style/StyleSemToolbar" />
+        <activity
+            android:name=".Perfil"
             android:exported="false" />
         <activity
             android:name=".AmigosActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity" android:theme="@style/StyleSemToolbar"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/StyleSemToolbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

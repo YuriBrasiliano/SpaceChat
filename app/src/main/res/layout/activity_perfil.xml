@@ -21,10 +21,10 @@
         android:id="@+id/cardView2"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="381dp"
         app:cardCornerRadius="90dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
+        app:layout_constraintBottom_toTopOf="@+id/tbBase22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,6 +33,7 @@
             android:id="@+id/perfil_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/gradient"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_account_img" />
     </androidx.cardview.widget.CardView>
@@ -54,13 +55,16 @@
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_marginTop="272dp"
         android:background="@drawable/round_blue_shape"
         android:text="Sair"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

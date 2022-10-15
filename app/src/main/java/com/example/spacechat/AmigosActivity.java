@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -70,14 +71,16 @@ public class AmigosActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.perfil_menu, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.menu_base, menu);
+        return false;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.menu_item_perfil){
+        if(item.getItemId() == R.id.mnPerfil){
             startActivity(new Intent(AmigosActivity.this,Perfil.class));
+        } if(item.getItemId() == R.id.mnMarketPlace){
+            startActivity(new Intent(AmigosActivity.this,MarketPlaceActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
