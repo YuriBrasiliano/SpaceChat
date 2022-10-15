@@ -5,11 +5,14 @@
       <map>
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/drawable/gradient.xml" value="0.513" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/drawable/ic_account_img.xml" value="0.323" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/drawable/messagem_input_bg.xml" value="0.48" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/drawable/round_blue_shape.xml" value="0.513" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_amigos.xml" value="0.55" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_amigos2.xml" value="0.5359375" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_main.xml" value="0.45674740484429066" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_message.xml" value="0.9" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_perfil.xml" value="0.55" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/user_holder.xml" value="0.55" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/menu/perfil_menu.xml" value="0.55" />
       </map>
     </option>

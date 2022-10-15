@@ -1,5 +1,6 @@
 package com.example.spacechat;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,10 +13,18 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class Perfil extends AppCompatActivity {
 
@@ -84,5 +93,38 @@ public class Perfil extends AppCompatActivity {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Alterando...");
         progressDialog.show();
+
+        FirebaseStorage.getInstance().getReference("images/"+ UUID.randomUUID().toString()).putFile(imagePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if(task.isSuccessful()){
+                    task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                           if(task.isSuccessful()){
+                               alterarFotoDoUsuario(task.getResult().toString());
+                           }
+                        }
+                    });
+                    Toast.makeText(Perfil.this, "Imagem alterada com sucesso!", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    Toast.makeText(Perfil.this, "Ocorreu um erro, por favor tente novamente mais tarde!"+ task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+                progressDialog.dismiss();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = 100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount();
+                progressDialog.setMessage("Alterando... "+ (int) progress + "%");
+            }
+        });
     }
+
+    private void alterarFotoDoUsuario(String url) {
+        FirebaseDatabase.getInstance().getReference("user/"+FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilePicture").setValue(url);
+    }
+
+
 }
