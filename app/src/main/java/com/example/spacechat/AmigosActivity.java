@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,6 +31,8 @@ public class AmigosActivity extends AppCompatActivity {
     UsersAdapter.OnUserClickListener onUserClickListener;
 
     private SwipeRefreshLayout swipeRefreshLayout;
+
+    String myImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,11 @@ public class AmigosActivity extends AppCompatActivity {
             @Override
             public void onUserClicked(int position) {
                 startActivity(new Intent(AmigosActivity.this,MessageActivity.class)
-                        .putExtra("username_of_roonmate", users.get(position).getUsername()));
+                        .putExtra("username_of_roommate", users.get(position).getUsername())
+                        .putExtra("email_of_roommate", users.get(position).getEmail())
+                        .putExtra("img_of_roommate", users.get(position).getProfilePicture())
+                        .putExtra("my_img", myImageUrl)
+                );
 
             }
 
@@ -88,6 +95,13 @@ public class AmigosActivity extends AppCompatActivity {
                 recyclerView.setAdapter(usersAdapter);
                 progressBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
+
+                for(User user: users){
+                    if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                        myImageUrl = user.getProfilePicture();
+                        return;
+                    }
+                }
             }
 
             @Override

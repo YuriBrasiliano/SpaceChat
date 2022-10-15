@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "171225860984",
+    "firebase_url": "https://spacechat-f060c-default-rtdb.firebaseio.com",
     "project_id": "spacechat-f060c",
     "storage_bucket": "spacechat-f060c.appspot.com"
   },
