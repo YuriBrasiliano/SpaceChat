@@ -2,7 +2,6 @@ package com.example.spacechat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtEmail, edtdtaNascimento, edtPassword, edtNome, edtNumber, edtUsername;
     private Button btnSubmit;
     private TextView txttitleSignUp, txtLoginInfo;
-
     private boolean isSigningUp = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +36,15 @@ public class MainActivity extends AppCompatActivity {
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
             startActivity(new Intent(MainActivity.this,AmigosActivity.class));
             finish();
-
         }
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                if(isSigningUp){
                    if(edtNome.getText().toString().isEmpty() || edtNumber.getText().toString().isEmpty() || edtEmail.getText().toString().isEmpty() ||
                            edtPassword.getText().toString().isEmpty() || edtdtaNascimento.getText().toString().isEmpty()){
                        Toast.makeText(MainActivity.this,"Informações inválidas, por favor tente novamente", Toast.LENGTH_SHORT).show();
                        return;
-
                    }
                    handleSignUp();
                }else{
@@ -58,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                }
             }
         });
-
         txtLoginInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
     private void handleLogIn(){
         FirebaseAuth.getInstance().signInWithEmailAndPassword(edtEmail.getText().toString(), edtPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -111,6 +103,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

@@ -1,7 +1,5 @@
 package com.example.spacechat;
 
-import java.util.Date;
-
 public class User {
     private String username;
     private String email;
@@ -13,7 +11,6 @@ public class User {
     public User(){
 
     }
-
     public User(String username, String email, String nome, String dtaNascimento, String number, String profilePicture) {
         this.email = email;
         this.nome = nome;

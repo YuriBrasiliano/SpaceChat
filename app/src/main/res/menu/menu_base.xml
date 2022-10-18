@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_chats"
         app:showAsAction="always"
         android:title="Chats"
-        android:fillColor="@color/white"/>
+       />
     <item
         android:id="@+id/mnMarketPlace"
         android:contentDescription="MarketPlace"
@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_marketplace"
         app:showAsAction="always"
         android:title="MarketPlace"
-        android:fillColor="@color/white"/>
+        />
     <item
         android:id="@+id/mnPerfil"
         android:icon="@drawable/ic_account_img"
@@ -25,6 +25,6 @@
         app:showAsAction="always"
         android:enabled="true"
         android:contentDescription="Perfil"
-        android:fillColor="@color/white"
+
         />
 </menu>

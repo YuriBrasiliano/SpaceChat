@@ -2,37 +2,29 @@ package com.example.spacechat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-
-import com.bumptech.glide.Glide;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 public class MarketPlaceActivity extends AppCompatActivity {
-
+    private BottomNavigationView mns;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market_place);
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_base, menu);
-        return false;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.mnPerfil){
-            startActivity(new Intent(MarketPlaceActivity.this,Perfil.class));
-        } if(item.getItemId() == R.id.mnChats){
-            startActivity(new Intent(MarketPlaceActivity.this,AmigosActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
+        mns = findViewById(R.id.bottom_navigation3);
+        mns.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case (R.id.mnChats):
+                        startActivity(new Intent(MarketPlaceActivity.this, AmigosActivity.class));break;
+                    case (R.id.mnPerfil):
+                        startActivity(new Intent(MarketPlaceActivity.this, Perfil.class));break;
+                }
+                return true;
+            }
+        });
     }
 }
