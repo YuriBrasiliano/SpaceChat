@@ -16,9 +16,17 @@
         android:theme="@style/Theme.SpaceChat"
         tools:targetApi="31">
         <activity
-            android:name=".MarketPlaceActivity"
+            android:name=".ViewProduto"
             android:exported="false"
             android:theme="@style/StyleSemToolbar"/>
+        <activity
+            android:name=".CadastroProduto"
+            android:exported="false"
+            android:theme="@style/StyleSemToolbar" />
+        <activity
+            android:name=".MarketPlaceActivity"
+            android:exported="false"
+            android:theme="@style/StyleSemToolbar" />
         <activity
             android:name=".MessageActivity"
             android:exported="false"
@@ -26,11 +34,11 @@
         <activity
             android:name=".Perfil"
             android:exported="false"
-            android:theme="@style/StyleSemToolbar"/>
+            android:theme="@style/StyleSemToolbar" />
         <activity
             android:name=".AmigosActivity"
-            android:theme="@style/StyleSemToolbar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/StyleSemToolbar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
