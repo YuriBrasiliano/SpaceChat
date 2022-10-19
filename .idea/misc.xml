@@ -19,8 +19,9 @@
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_cadastro_produto.xml" value="0.55" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_main.xml" value="0.45674740484429066" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_market_place.xml" value="0.3109375" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_market_place_perfil.xml" value="0.5446880269814502" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_menu.xml" value="0.296875" />
-        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_message.xml" value="0.9" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_message.xml" value="0.6622039134912462" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_perfil.xml" value="0.33" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/activity_view_produto.xml" value="0.55" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/app_bar_menu.xml" value="0.3109375" />
@@ -28,6 +29,7 @@
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/fragment_blank.xml" value="0.3109375" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/fragment_gallery.xml" value="0.3109375" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/message_holder.xml" value="0.5489583333333333" />
+        <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/produto_holder.xml" value="0.4027777777777778" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/layout/user_holder.xml" value="0.55" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/menu/menu_base.xml" value="0.3109375" />
         <entry key="..\:/Users/yurib/AndroidStudioProjects/SpaceChat/app/src/main/res/menu/menu_base_dois.xml" value="0.3109375" />

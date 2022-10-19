@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +24,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,11 +50,13 @@ public class MessageActivity extends AppCompatActivity {
     private ArrayList<Message> messages;
     private MessageAdapter messageAdapter;
     String userNameOfTheRoomate, emailOfRoomate, chatRoomId;
+    private BottomNavigationView menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        menu = findViewById(R.id.bottom_navigation2);
         userNameOfTheRoomate = getIntent().getStringExtra("username_of_roommate");
         emailOfRoomate = getIntent().getStringExtra("email_of_roommate");
         imgSendMessage = findViewById(R.id.imgSendMessage);
@@ -66,12 +72,27 @@ public class MessageActivity extends AppCompatActivity {
         imgSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (edtText.getText().toString().isEmpty()){}else{
                 FirebaseDatabase.getInstance().getReference("messages/" + chatRoomId).push().setValue(new Message(FirebaseAuth.getInstance().getCurrentUser().getEmail(),emailOfRoomate,edtText.getText().toString()));
 
                 edtText.setText("");
             }
+            }
         });
+        menu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected (@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case (R.id.mnMarketPlace):
+                        startActivity(new Intent(MessageActivity.this, MarketPlacePerfilActivity.class));break;
+                    case (R.id.mnChats):
+                        startActivity(new Intent(MessageActivity.this, AmigosActivity.class));break;
+                    case (R.id.mnPerfil):
+                        startActivity(new Intent(MessageActivity.this, Perfil.class));break;
 
+                }
+                return true;
+            }});
 
         messageAdapter = new MessageAdapter(messages,getIntent().getStringExtra("my_img"), getIntent().getStringExtra("img_of_roommate"), MessageActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

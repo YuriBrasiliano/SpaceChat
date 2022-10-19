@@ -51,8 +51,7 @@ public class AmigosActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
         swipeRefreshLayout = findViewById(R.id.swipeLayout);
         menu = findViewById(R.id.bottom_navigation);
-
-
+        myImageUrl = "https://firebasestorage.googleapis.com/v0/b/spacechat-f060c.appspot.com/o/images%2F"+FirebaseAuth.getInstance().getCurrentUser().getUid().toString()+"?alt=media&token=a69afc50-95ca-4384-99f9-d160c29bbb2e";
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -65,7 +64,7 @@ public class AmigosActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected (@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case (R.id.mnMarketPlace):
-                        startActivity(new Intent(AmigosActivity.this, MarketPlaceActivity.class));break;
+                        startActivity(new Intent(AmigosActivity.this, MarketPlacePerfilActivity.class));break;
                     case (R.id.mnPerfil):
                         startActivity(new Intent(AmigosActivity.this, Perfil.class));break;
                 }return true;

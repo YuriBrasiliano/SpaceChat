@@ -116,7 +116,7 @@ public class Perfil extends AppCompatActivity {
             public boolean onNavigationItemSelected (@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case (R.id.mnMarketPlace):
-                        startActivity(new Intent(Perfil.this, MarketPlaceActivity.class));break;
+                        startActivity(new Intent(Perfil.this, MarketPlacePerfilActivity.class));break;
                     case (R.id.mnChats):
                         startActivity(new Intent(Perfil.this, AmigosActivity.class));break;
                 }

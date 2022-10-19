@@ -54,7 +54,7 @@ public class CadastroProduto extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case (R.id.mnMarketPlace):
-                        startActivity(new Intent(CadastroProduto.this, MarketPlaceActivity.class));
+                        startActivity(new Intent(CadastroProduto.this, MarketPlacePerfilActivity.class));
                         break;
                     case (R.id.mnPerfil):
                         startActivity(new Intent(CadastroProduto.this, Perfil.class));
