@@ -58,7 +58,7 @@ public class MarketPlaceActivity extends AppCompatActivity {
         onProdutosClickListener = new ProdutosAdapter.OnProdutosClickListener() {
             @Override
             public void onProdutosClicked(int position) {
-                startActivity(new Intent(MarketPlaceActivity.this,AmigosActivity.class)
+                startActivity(new Intent(MarketPlaceActivity.this,ViewProduto.class)
                         .putExtra("ProdutoNome", produtos.get(position).getNomeProduto())
                         .putExtra("ProdutoDescricao", produtos.get(position).getDescricaoProduto())
                         .putExtra("ProdutoPreco", produtos.get(position).getPrecoProduto())
