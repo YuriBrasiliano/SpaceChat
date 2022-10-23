@@ -81,7 +81,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
         ImageView img_perfil;
         public MessageHolder(@NonNull View itemView){
             super(itemView);
-
             ccll = itemView.findViewById(R.id.ccLayout);
             txtMessages = itemView.findViewById(R.id.txtMessages);
             img_perfil = itemView.findViewById(R.id.small_img_perfil);

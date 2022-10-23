@@ -11,9 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,11 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class MarketPlaceActivity extends AppCompatActivity {
+public class MeusProdutosActivity extends AppCompatActivity {
     private BottomNavigationView mns;
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
-    private String imgProduto;
     private Produto produto;
     ProdutosAdapter.OnProdutosClickListener onProdutosClickListener;
     private ProdutosAdapter produtosAdapter;
@@ -45,11 +46,11 @@ public class MarketPlaceActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case (R.id.mnChats):
-                        startActivity(new Intent(MarketPlaceActivity.this, AmigosActivity.class));break;
+                        startActivity(new Intent(MeusProdutosActivity.this, AmigosActivity.class));break;
                     case (R.id.mnPerfil):
-                        startActivity(new Intent(MarketPlaceActivity.this, Perfil.class));break;
+                        startActivity(new Intent(MeusProdutosActivity.this, Perfil.class));break;
                     case (R.id.mnMarketPlace):
-                    startActivity(new Intent(MarketPlaceActivity.this, MarketPlacePerfilActivity.class));break;
+                        startActivity(new Intent(MeusProdutosActivity.this, MarketPlacePerfilActivity.class));break;
 
                 }
                 return true;
@@ -58,7 +59,7 @@ public class MarketPlaceActivity extends AppCompatActivity {
         onProdutosClickListener = new ProdutosAdapter.OnProdutosClickListener() {
             @Override
             public void onProdutosClicked(int position) {
-                startActivity(new Intent(MarketPlaceActivity.this,ViewProduto.class)
+                startActivity(new Intent(MeusProdutosActivity.this,ViewProduto.class)
                         .putExtra("ProdutoNome", produtos.get(position).getNomeProduto())
                 );
             }
@@ -73,10 +74,13 @@ public class MarketPlaceActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    produtos.add(dataSnapshot.getValue(Produto.class));
+                    produto = dataSnapshot.getValue(Produto.class);
+                    if (produto.getIdProduto().contains(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                    produtos.add(dataSnapshot.getValue(Produto.class));}
+                    else{}
 
-                    produtosAdapter = new ProdutosAdapter(produtos, MarketPlaceActivity.this,onProdutosClickListener);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(MarketPlaceActivity.this));
+                    produtosAdapter = new ProdutosAdapter(produtos, MeusProdutosActivity.this,onProdutosClickListener);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MeusProdutosActivity.this));
                     recyclerView.setAdapter(produtosAdapter);
                     progressBar.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);

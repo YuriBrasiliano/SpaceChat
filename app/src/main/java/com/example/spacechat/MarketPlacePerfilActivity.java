@@ -32,7 +32,7 @@ import java.io.IOException;
 public class MarketPlacePerfilActivity extends AppCompatActivity {
 
     private ImageView imgPerfil;
-    private TextView  username, novoProduto, txtMeusPedidos, txtMeusProdutos;
+    private TextView  username, novoProduto, txtMeusProdutos;
     StorageReference storageReference;
     private Button btnPesquisarProdutos;
     DatabaseReference reference;
@@ -45,7 +45,6 @@ public class MarketPlacePerfilActivity extends AppCompatActivity {
         imgPerfil = findViewById(R.id.perfil_img);
         menu = findViewById(R.id.bottom_navigation2);
         txtMeusProdutos = findViewById(R.id.txtMeusProdutos);
-        txtMeusPedidos = findViewById(R.id.txtMeusPedidos);
         novoProduto = findViewById(R.id.txtnovoProduto);
         btnPesquisarProdutos = findViewById(R.id.btnPesquisarProdutos);
         username = findViewById(R.id.txtUserName);
@@ -69,16 +68,10 @@ public class MarketPlacePerfilActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketPlacePerfilActivity.this, CadastroProduto.class));
             }
         });
-        txtMeusPedidos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MarketPlacePerfilActivity.this, MarketPlaceActivity.class));
-            }
-        });
         txtMeusProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MarketPlacePerfilActivity.this, MarketPlaceActivity.class));
+                startActivity(new Intent(MarketPlacePerfilActivity.this, MeusProdutosActivity.class));
             }
         });
 

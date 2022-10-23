@@ -80,25 +80,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPesquisarProdutos" />
-
-    <TextView
-        android:id="@+id/txtMeusPedidos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="11dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="Meus Pedidos"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnPesquisarProdutos"
-        app:layout_constraintVertical_bias="0.2" />
-
     <TextView
         android:id="@+id/txtMeusProdutos"
         android:layout_width="0dp"
@@ -112,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMeusPedidos" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPesquisarProdutos" />
 
     <TextView
         android:id="@+id/txtnovoProduto"

@@ -64,13 +64,13 @@
         android:editable="false"
         android:textColor="@color/white"
         android:textSize="50px"
-        app:layout_constraintBottom_toTopOf="@+id/btnPubProdutoView"
+        app:layout_constraintBottom_toTopOf="@+id/btnmsgVendedor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DescricaoProdutoView" />
 
     <Button
-        android:id="@+id/btnPubProdutoView"
+        android:id="@+id/btnmsgVendedor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="73dp"
